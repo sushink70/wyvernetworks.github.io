@@ -69,6 +69,21 @@ window.addEventListener('resize', () => {
     canvas.height = window.innerHeight;
 });
 
+// Glow effect with 16 million colors
+const glowText = document.querySelector('.glow-text');
+
+function updateGlowColor() {
+    const r = Math.floor(Math.random() * 256); // Random 0-255
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    glowText.style.textShadow = `
+        0 0 10px rgb(${r}, ${g}, ${b}),
+        0 0 20px rgb(${r}, ${g}, ${b}),
+        0 0 30px rgb(${r}, ${g}, ${b})
+    `;
+}
+
+setInterval(updateGlowColor, 100); // Update every 100ms for smooth cycling
 // SPA navigation
 const navLinks = document.querySelectorAll('.nav-links a');
 const sections = document.querySelectorAll('.content');
